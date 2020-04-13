@@ -11,9 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     //MARK: Properties
-    @IBOutlet weak var currentWordLabel: UILabel!
-    @IBOutlet weak var nextWordLabel: UILabel!
-    @IBOutlet weak var wordInputTextField: UITextField!
+    @IBOutlet weak var currentWord: UILabel!
+    @IBOutlet weak var nextWord: UILabel!
+    @IBOutlet weak var typedWord: UITextField!
     
     
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     
     //MARK: Actions
-    @IBAction func inputButton(_ sender: UIButton) {
+    @IBAction func completeButton(_ sender: UIButton) {
     }
     
     

@@ -21,6 +21,9 @@
                                 <state key="normal" title="확인">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="inputButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VyH-uc-aYd"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRL-pv-Eh3">
                                 <rect key="frame" x="132" y="237" width="150" height="34"/>
@@ -48,6 +51,11 @@
                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="currentWordLabel" destination="cCm-jS-iZ2" id="Ghn-aR-7yk"/>
+                        <outlet property="nextWordLabel" destination="tu2-mN-Qmw" id="6qO-pk-ogv"/>
+                        <outlet property="wordInputTextField" destination="JRL-pv-Eh3" id="zBN-B4-EbZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -24,6 +24,44 @@ class ViewController: UIViewController {
     
     //MARK: Actions
     @IBAction func completeButton(_ sender: UIButton) {
+        
+        currentWord.text = "hh"
+        
+        let areTheseSame = compareWords(wordOnLabel: currentWord.text!, typedWord: typedWord!.text!)
+        print(areTheseSame)
+        
+        
+//        currentWord.text = typedWord.text
+        
+        
+//        currentWord.text = "hh"
+//        typedWord.text = "hh"
+        
+//        let inputTextField = typedWord.text ?? nil
+        
+        
+        
+        
+//        print("current word label 에 있는 값: \(currentWord.text)")
+//        print("text field 에 있는 값: \(typedWord.text ?? "값이 없어")")
+//
+//        if currentWord.text == typedWord.text {
+//            print("둘의 값이 같다\n\(currentWord.text)\n\(typedWord.text)")
+//        }
+        
+        
+//        let words = ["1", "2", "3", "4"]
+//
+//        var aSet = Set(words)
+//
+//
+//
+//        for _ in 1 ... 4 {
+//            let element = aSet.randomElement()!
+//            print(element)
+//            aSet.remove(element)
+//        }
+        
     }
     
     
@@ -31,5 +69,20 @@ class ViewController: UIViewController {
         // Hide the keyboard.
         typedWord.resignFirstResponder()
     }
+    
+    
+    func compareWords(wordOnLabel: String, typedWord: String) -> Bool {
+        
+        if wordOnLabel == typedWord {
+            print("\(wordOnLabel) 와 \(typedWord) 이 같다")
+            return true
+        }
+        else {
+            return false
+        }
+        
+    }
+    
+    
 }
 

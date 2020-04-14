@@ -39,6 +39,9 @@ nextWord.text = "hh"
         if areTheseSame {
             replaceWord(thisWord: currentWord, toWord: nextWord)
         }
+        
+        clearTextField(textField: typedWord)
+        
 
 
         
@@ -100,6 +103,11 @@ nextWord.text = "hh"
     
     func replaceWord(thisWord: UILabel, toWord: UILabel) {
         thisWord.text = toWord.text
+    }
+    
+    
+    func clearTextField(textField: UITextField) {
+        textField.text = ""
     }
     
     

@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 테스트를 위한 임시 설정
         currentWord.text = "hh"
         nextWord.text = "jj"
     }
@@ -27,58 +28,21 @@ class ViewController: UIViewController {
     //MARK: Actions
     @IBAction func completeButton(_ sender: UIButton) {
         
-nextWord.text = "hh"
+        // 테스트를 위한 임시 설정
+        nextWord.text = "hh"
         
-        let areTheseSame = compareWords(wordOnLabel: currentWord, typedWord: typedWord!)
-        print(areTheseSame)
+        // 두 아규먼트(현재 label, 입력 text field) 같으면 참
+        let areTheseSame = compareWords(wordOnLabel: currentWord, typedWord: typedWord)
         
-        sleep(1)
-        
-        print("resume")
-        
+
+        // 입력과 현재단어가 같으면 다음 단어를 현재 단어로 옮김
         if areTheseSame {
             replaceWord(thisWord: currentWord, toWord: nextWord)
         }
         
+        // text field 지우기
         clearTextField(textField: typedWord)
-        
-
-
-        
-        
-        
-        
-//        currentWord.text = typedWord.text
-        
-        
-//        currentWord.text = "hh"
-//        typedWord.text = "hh"
-        
-//        let inputTextField = typedWord.text ?? nil
-        
-        
-        
-        
-//        print("current word label 에 있는 값: \(currentWord.text)")
-//        print("text field 에 있는 값: \(typedWord.text ?? "값이 없어")")
-//
-//        if currentWord.text == typedWord.text {
-//            print("둘의 값이 같다\n\(currentWord.text)\n\(typedWord.text)")
-//        }
-        
-        
-//        let words = ["1", "2", "3", "4"]
-//
-//        var aSet = Set(words)
-//
-//
-//
-//        for _ in 1 ... 4 {
-//            let element = aSet.randomElement()!
-//            print(element)
-//            aSet.remove(element)
-//        }
-        
+                
     }
     
     

@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         
 nextWord.text = "hh"
         
-        let areTheseSame = compareWords(wordOnLabel: currentWord.text!, typedWord: typedWord!.text!)
+        let areTheseSame = compareWords(wordOnLabel: currentWord, typedWord: typedWord!)
         print(areTheseSame)
         
         sleep(1)
@@ -88,7 +88,7 @@ nextWord.text = "hh"
     }
     
     
-    func compareWords(wordOnLabel: String, typedWord: String) -> Bool {
+    func compareWords(wordOnLabel: UILabel, typedWord: UITextField) -> Bool {
         
         if wordOnLabel == typedWord {
             print("\(wordOnLabel) 와 \(typedWord) 이 같다")

@@ -22,7 +22,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="inputButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VyH-uc-aYd"/>
+                                    <action selector="completeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8SS-Ax-8XO"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRL-pv-Eh3" userLabel="Typed Word">
@@ -49,15 +49,24 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ouS-vJ-VYj" appends="YES" id="Es1-cF-4hA"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="currentWordLabel" destination="cCm-jS-iZ2" id="Ghn-aR-7yk"/>
-                        <outlet property="nextWordLabel" destination="tu2-mN-Qmw" id="6qO-pk-ogv"/>
-                        <outlet property="wordInputTextField" destination="JRL-pv-Eh3" id="zBN-B4-EbZ"/>
+                        <outlet property="currentWord" destination="cCm-jS-iZ2" id="8i1-k4-azc"/>
+                        <outlet property="nextWord" destination="tu2-mN-Qmw" id="Udc-xn-fH0"/>
+                        <outlet property="typedWord" destination="JRL-pv-Eh3" id="HSB-Z1-12q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ouS-vJ-VYj">
+                    <connections>
+                        <action selector="tapOnTheMainView:" destination="BYZ-38-t0r" id="VS8-qu-8Tu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </scene>

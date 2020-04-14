@@ -27,5 +27,9 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func tapOnTheMainView(_ sender: UITapGestureRecognizer) {
+        // Hide the keyboard.
+        typedWord.resignFirstResponder()
+    }
 }
 

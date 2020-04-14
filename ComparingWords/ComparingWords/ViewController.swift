@@ -18,17 +18,31 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        currentWord.text = "hh"
+        nextWord.text = "jj"
     }
     
     
     //MARK: Actions
     @IBAction func completeButton(_ sender: UIButton) {
         
-        currentWord.text = "hh"
+nextWord.text = "hh"
         
         let areTheseSame = compareWords(wordOnLabel: currentWord.text!, typedWord: typedWord!.text!)
         print(areTheseSame)
+        
+        sleep(1)
+        
+        print("resume")
+        
+        if areTheseSame {
+            replaceWord(thisWord: currentWord, toWord: nextWord)
+        }
+
+
+        
+        
         
         
 //        currentWord.text = typedWord.text
@@ -81,6 +95,11 @@ class ViewController: UIViewController {
             return false
         }
         
+    }
+    
+    
+    func replaceWord(thisWord: UILabel, toWord: UILabel) {
+        thisWord.text = toWord.text
     }
     
     

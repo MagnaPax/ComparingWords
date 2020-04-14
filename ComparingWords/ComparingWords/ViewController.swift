@@ -14,31 +14,44 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentWord: UILabel!
     @IBOutlet weak var nextWord: UILabel!
     @IBOutlet weak var typedWord: UITextField!
-    
+    private var wordList = ["1", "2", "3", "4"]
+//    private var haha: [Int] = []
+//    private var hoho: Int = 0
+//    private var aaaaaa: (_: String, _: String) = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 테스트를 위한 임시 설정
-        currentWord.text = "hh"
-        nextWord.text = "jj"
+        
+        // 배열을 넘긴 뒤 랜덤한 두 개의 단어 받음
+        let randomWords = returnRandomWords(fromList: wordList)
+        
+        print("랜덤Current Word: \(randomWords.currentWord)\n랜덤Next Word: \(randomWords.nextWord)\n")
+        
+        // 넘겨받은 두 임의의 단어를 currentWord 레이블과 nextWord 레이블에 할당
+        currentWord.text! = randomWords.currentWord
+        nextWord.text! = randomWords.nextWord
+        
+        print("현재단어label: \(currentWord.text!)\n다음단어label: \(nextWord.text!)")
+        
     }
     
     
     //MARK: Actions
     @IBAction func completeButton(_ sender: UIButton) {
         
-        // 테스트를 위한 임시 설정
-        nextWord.text = "hh"
-        
         // 두 아규먼트(현재 label, 입력 text field) 같으면 참
-        let areTheseSame = compareWords(wordOnLabel: currentWord, typedWord: typedWord)
+        let areTheseSame = compareWords(wordOnLabel: currentWord, typedTextField: typedWord)
         
-
         // 입력과 현재단어가 같으면 다음 단어를 현재 단어로 옮김
         if areTheseSame {
             replaceWord(thisWord: currentWord, toWord: nextWord)
+            
+            // 현재 단어를 다음 단어로 바꾼 뒤 새로운 다음 단어를 받음
+            let randomWords = returnRandomWords(fromList: wordList)
+            nextWord.text! = randomWords.nextWord
         }
+        
         
         // text field 지우기
         clearTextField(textField: typedWord)
@@ -47,15 +60,18 @@ class ViewController: UIViewController {
     
     
     @IBAction func tapOnTheMainView(_ sender: UITapGestureRecognizer) {
+        
         // Hide the keyboard.
         typedWord.resignFirstResponder()
     }
     
     
-    func compareWords(wordOnLabel: UILabel, typedWord: UITextField) -> Bool {
+    func compareWords(wordOnLabel: UILabel, typedTextField: UITextField) -> Bool {
         
-        if wordOnLabel == typedWord {
-            print("\(wordOnLabel) 와 \(typedWord) 이 같다")
+        print("compareWords 함수에 들어왔음\n현재단어: \(currentWord.text!)\n입력단어: \(typedTextField.text!)")
+        
+        if wordOnLabel.text! == typedTextField.text! {
+            print("\(wordOnLabel.text!) 와 \(typedTextField.text!) 이 같다")
             return true
         }
         else {
@@ -71,9 +87,21 @@ class ViewController: UIViewController {
     
     
     func clearTextField(textField: UITextField) {
-        textField.text = ""
+        textField.text = nil
     }
     
     
+    func returnRandomWords(fromList: [String]) -> (currentWord: String, nextWord: String) {
+                
+        var aSet = Set(fromList)
+
+        let currentWord = aSet.randomElement()
+        aSet.remove(currentWord!)
+        
+        let nextWord = aSet.randomElement()
+        
+        return (currentWord!, nextWord!)
+        
+    }
 }
 

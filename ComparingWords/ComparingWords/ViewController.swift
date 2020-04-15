@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     @IBOutlet weak var currentWord: UILabel!
@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 위임자를 정해줌
+        typedWord.delegate = self
         
         
         // 배열을 넘긴 뒤 랜덤한 두 개의 단어 받음
@@ -103,5 +106,28 @@ class ViewController: UIViewController {
         return (currentWord!, nextWord!)
         
     }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+                // 두 아규먼트(현재 label, 입력 text field) 같으면 참
+        let areTheseSame = compareWords(wordOnLabel: currentWord, typedTextField: typedWord)
+        
+        // 입력과 현재단어가 같으면 다음 단어를 현재 단어로 옮김
+        if areTheseSame {
+            replaceWord(thisWord: currentWord, toWord: nextWord)
+            
+            // 현재 단어를 다음 단어로 바꾼 뒤 새로운 다음 단어를 받음
+            let randomWords = returnRandomWords(fromList: wordList)
+            nextWord.text! = randomWords.nextWord
+        }
+        
+        
+        // text field 지우기
+        clearTextField(textField: typedWord)
+        
+        return true
+    }
+    
+    
 }
 

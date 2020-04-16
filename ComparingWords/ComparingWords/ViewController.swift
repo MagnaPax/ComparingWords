@@ -48,7 +48,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func compareWords(wordOnLabel: UILabel, typedTextField: UITextField) -> Bool {
                 
-        if wordOnLabel.text! == typedTextField.text! {
+//        if wordOnLabel.text! == typedTextField.text! {
+        if wordOnLabel.text == typedTextField.text {
             return true
         }
         else {
